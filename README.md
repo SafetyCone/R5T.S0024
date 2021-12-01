@@ -1,0 +1,2 @@
+# R5T.S0024
+Survey all local extension method base types, add to repository.
