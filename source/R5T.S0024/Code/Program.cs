@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 
 using Microsoft.Extensions.Hosting;
 
-using R5T.Plymouth;
-using R5T.Plymouth.ProgramAsAService;
+using R5T.D0088;
+using R5T.D0090;
 
 
 namespace R5T.S0024
@@ -14,27 +14,25 @@ namespace R5T.S0024
     {
         #region Static
         
-        static Task Main()
+        static async Task Main()
         {
-            return ApplicationBuilder.Instance
-                .NewApplication()
-                .UseProgramAsAService<Program>()
-                .UseT0027_T009_TwoStageStartup<Startup>()
-                .BuildProgramAsAServiceHost()
-                .Run();
+            //OverridableProcessStartTimeProvider.Override("20211208-104059");
+
+            await Instances.Host.NewBuilder()
+                .UseProgramAsAService<Program, T0075.IHostBuilder>()
+                .UseHostStartup<HostStartup, T0075.IHostBuilder>(Instances.ServiceAction.AddStartupAction())
+                .Build()
+                .SerializeConfigurationAudit()
+                .SerializeServiceCollectionAudit()
+                .RunAsync();
         }
 
         #endregion
         
         
-        private IServiceProvider ServiceProvider { get; }
-        
-        
-        public Program(IApplicationLifetime applicationLifetime,
-            IServiceProvider serviceProvider)
-            : base(applicationLifetime)
+        public Program(IServiceProvider serviceProvider)
+            : base(serviceProvider)
         {
-            this.ServiceProvider = serviceProvider;
         }
         
         protected override Task ServiceMain(CancellationToken stoppingToken)
@@ -44,12 +42,19 @@ namespace R5T.S0024
         
         private async Task RunOperation()
         {
-        
+            //await this.ServiceProvider.Run<O900_OpenAllEmbRepositoryFiles>();
+
+            await this.ServiceProvider.Run<O100_UpdateEmbRepositoryWithCurrentEmbs>();
+
+            //await this.ServiceProvider.Run<O004_UpdateEmbRepository>();
+            //await this.ServiceProvider.Run<O003_PerformRequiredHumanActions>();
+            //await this.ServiceProvider.Run<O002_BackupFileBasedRepositoryFiles>();
+            //await this.ServiceProvider.Run<O001_AnalyzeAllCurrentEmbs>();
         }
         
-        private async Task RunMethod()
-        {
+        //private async Task RunMethod()
+        //{
         
-        }
+        //}
     }
 }
