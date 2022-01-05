@@ -64,7 +64,7 @@ namespace R5T.S0024
             // Utility services.
             var notepadPlusPlusExecutableFilePathProviderAction = Instances.ServiceAction.AddHardCodedNotepadPlusPlusExecutableFilePathProviderAction();
             var notepadPlusPlusOperatorAction = Instances.ServiceAction.AddNotepadPlusPlusOperatorAction(
-                servicesPlatform.CommandLineOperatorAction,
+                servicesPlatform.BaseCommandLineOperatorAction,
                 notepadPlusPlusExecutableFilePathProviderAction);
 
             // Core competencies.
