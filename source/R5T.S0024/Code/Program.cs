@@ -42,10 +42,15 @@ namespace R5T.S0024
         
         private async Task RunOperation()
         {
+            await this.ServiceProvider.Run<O000_Main>();
+
             //await this.ServiceProvider.Run<O900_OpenAllEmbRepositoryFiles>();
 
-            await this.ServiceProvider.Run<O100_UpdateEmbRepositoryWithCurrentEmbs>();
+            //await this.ServiceProvider.Run<O100_UpdateEmbRepositoryWithCurrentEmbs>();
 
+            //await this.ServiceProvider.Run<O009_UpdateRepositoryWithSelectedEmbs>();
+            //await this.ServiceProvider.Run<O008_MapEmbsToProjects>();
+            //await this.ServiceProvider.Run<O006_UpdateRepositoryWithAllEmbs>();
             //await this.ServiceProvider.Run<O004_UpdateEmbRepository>();
             //await this.ServiceProvider.Run<O003_PerformRequiredHumanActions>();
             //await this.ServiceProvider.Run<O002_BackupFileBasedRepositoryFiles>();

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using R5T.D0084.D001;
 using R5T.D0101;
 using R5T.D0108;
+using R5T.T0020;
 using R5T.T0100;
 
 using R5T.S0024.Library;
@@ -13,7 +14,8 @@ using R5T.S0024.Library;
 
 namespace R5T.S0024
 {
-    public class O003_PerformRequiredHumanActions : T0020.IOperation
+    [OperationMarker]
+    public class O003_PerformRequiredHumanActions : IActionOperation
     {
         #region Static
 
@@ -125,7 +127,7 @@ namespace R5T.S0024
 
             // This is required for evaluating existing to-project mappings below.
             // To project mappings.
-            currentExtensionMethodBases.FillCurrentIdentities(repositoryExtensionMethodBases);
+            currentExtensionMethodBases.FillIdentitiesFromSourceOrSetNew(repositoryExtensionMethodBases);
 
             var existingToProjectMappings = await this.ExtensionMethodBaseRepository.GetAllToProjectMappings();
 

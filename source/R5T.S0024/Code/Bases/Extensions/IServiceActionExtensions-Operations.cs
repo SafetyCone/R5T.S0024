@@ -16,6 +16,18 @@ namespace R5T.S0024
     public static partial class IServiceActionExtensions
     {
         /// <summary>
+        /// Adds the <see cref="O000_Main"/> operation as a <see cref="ServiceLifetime.Singleton"/>.
+        /// </summary>
+        public static IServiceAction<O000_Main> AddO000_MainAction(this IServiceAction _,
+            IServiceAction<O100_UpdateEmbRepositoryWithCurrentEmbs> o100_UpdateEmbRepositoryWithCurrentEmbsAction)
+        {
+            var serviceAction = _.New<O000_Main>(services => services.AddO000_Main(
+                o100_UpdateEmbRepositoryWithCurrentEmbsAction));
+
+            return serviceAction;
+        }
+
+        /// <summary>
         /// Adds the <see cref="O100_UpdateEmbRepositoryWithCurrentEmbs"/> operation as a <see cref="ServiceLifetime.Singleton"/>.
         /// </summary>
         public static IServiceAction<O100_UpdateEmbRepositoryWithCurrentEmbs> AddO100_UpdateEmbRepositoryWithCurrentEmbsAction(this IServiceAction _,
@@ -31,6 +43,78 @@ namespace R5T.S0024
                 o003_PerformRequiredHumanActionsAction,
                 o004_UpdateEmbRepositoryAction,
                 o005_UpdateEmbToProjectMappingsAction));
+
+            return serviceAction;
+        }
+
+        /// <summary>
+        /// Adds the <see cref="O009_UpdateRepositoryWithSelectedEmbs"/> operation as a <see cref="ServiceLifetime.Singleton"/>.
+        /// </summary>
+        public static IServiceAction<O009_UpdateRepositoryWithSelectedEmbs> AddO009_UpdateRepositoryWithSelectedEmbsAction(this IServiceAction _,
+            IServiceAction<IExtensionMethodBaseRepository> extensionMethodBaseRepositoryAction,
+            IServiceAction<INotepadPlusPlusOperator> notepadPlusPlusOperatorAction,
+            IServiceAction<O002_BackupFileBasedRepositoryFiles> o002_BackupFileBasedRepositoryFilesAction)
+        {
+            var serviceAction = _.New<O009_UpdateRepositoryWithSelectedEmbs>(services => services.AddO009_UpdateRepositoryWithSelectedEmbs(
+                extensionMethodBaseRepositoryAction,
+                notepadPlusPlusOperatorAction,
+                o002_BackupFileBasedRepositoryFilesAction));
+
+            return serviceAction;
+        }
+
+        /// <summary>
+        /// Adds the <see cref="O008_MapEmbsToProjects"/> operation as a <see cref="ServiceLifetime.Singleton"/>.
+        /// </summary>
+        public static IServiceAction<O008_MapEmbsToProjects> AddO008_MapEmbsToProjectsAction(this IServiceAction _,
+            IServiceAction<IExtensionMethodBaseRepository> extensionMethodBaseRepositoryAction,
+            IServiceAction<INotepadPlusPlusOperator> notepadPlusPlusOperatorAction,
+            IServiceAction<IProjectRepository> projectRepositoryAction,
+            IServiceAction<O002_BackupFileBasedRepositoryFiles> o002_BackupFileBasedRepositoryFilesAction)
+        {
+            var serviceAction = _.New<O008_MapEmbsToProjects>(services => services.AddO008_MapEmbsToProjects(
+                extensionMethodBaseRepositoryAction,
+                notepadPlusPlusOperatorAction,
+                projectRepositoryAction,
+                o002_BackupFileBasedRepositoryFilesAction));
+
+            return serviceAction;
+        }
+
+        /// <summary>
+        /// Adds the <see cref="O007_WriteOutAllEmbs"/> operation as a <see cref="ServiceLifetime.Singleton"/>.
+        /// </summary>
+        public static IServiceAction<O007_WriteOutAllEmbs> AddO007_WriteOutAllEmbsAction(this IServiceAction _,
+            IServiceAction<IAllExtensionMethodBasesListingFilePathProvider> allExtensionMethodBasesListingFilePathProviderAction,
+            IServiceAction<IExtensionMethodBaseRepository> extensionMethodBaseRepositoryAction,
+            IServiceAction<INotepadPlusPlusOperator> notepadPlusPlusOperatorAction)
+        {
+            var serviceAction = _.New<O007_WriteOutAllEmbs>(services => services.AddO007_WriteOutAllEmbs(
+                allExtensionMethodBasesListingFilePathProviderAction,
+                extensionMethodBaseRepositoryAction,
+                notepadPlusPlusOperatorAction));
+
+            return serviceAction;
+        }
+
+        /// <summary>
+        /// Adds the <see cref="O006_UpdateRepositoryWithAllEmbs"/> operation as a <see cref="ServiceLifetime.Singleton"/>.
+        /// </summary>
+        public static IServiceAction<O006_UpdateRepositoryWithAllEmbs> AddO006_UpdateRepositoryWithAllEmbsAction(this IServiceAction _,
+            IServiceAction<IAllProjectDirectoryPathsProvider> allProjectDirectoryPathsProviderAction,
+            IServiceAction<IExtensionMethodBaseRepository> extensionMethodBaseRepositoryAction,
+            IServiceAction<INotepadPlusPlusOperator> notepadPlusPlusOperatorAction,
+            IServiceAction<ISummaryFilePathProvider> summaryFilePathProviderAction,
+            IServiceAction<O002_BackupFileBasedRepositoryFiles> o002_BackupFileBasedRepositoryFilesAction,
+            IServiceAction<O007_WriteOutAllEmbs> o007_WriteOutAllEmbsAction)
+        {
+            var serviceAction = _.New<O006_UpdateRepositoryWithAllEmbs>(services => services.AddO006_UpdateRepositoryWithAllEmbs(
+                allProjectDirectoryPathsProviderAction,
+                extensionMethodBaseRepositoryAction,
+                notepadPlusPlusOperatorAction,
+                summaryFilePathProviderAction,
+                o002_BackupFileBasedRepositoryFilesAction,
+                o007_WriteOutAllEmbsAction));
 
             return serviceAction;
         }

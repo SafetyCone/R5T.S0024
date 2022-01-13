@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 
 using R5T.D0105;
 using R5T.D0108.I001;
+using R5T.T0020;
 
 
 namespace R5T.S0024
@@ -11,7 +12,8 @@ namespace R5T.S0024
     /// <summary>
     /// Utility operation to open all files in Notepad++ for the file-based extension method base repository.
     /// </summary>
-    public class O900_OpenAllEmbRepositoryFiles : T0020.IOperation
+    [OperationMarker]
+    public class O900_OpenAllEmbRepositoryFiles : IActionOperation
     {
         private IExtensionMethodBaseRepositoryFilePathsProvider ExtensionMethodBaseRepositoryFilePathsProvider { get; }
         private INotepadPlusPlusOperator NotepadPlusPlusOperator { get; }

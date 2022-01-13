@@ -1,23 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-
-using R5T.Magyar;
-using R5T.Magyar.IO;
 
 using R5T.D0084.D001;
 using R5T.D0101;
 using R5T.D0105;
 using R5T.D0108;
 using R5T.D0110;
+using R5T.T0020;
 
 using R5T.S0024.Library;
 
 
 namespace R5T.S0024
 {
-    public class O001_AnalyzeAllCurrentEmbs : T0020.IOperation
+    [OperationMarker]
+    public class O001_AnalyzeAllCurrentEmbs : IActionOperation
     {
         private IAllProjectDirectoryPathsProvider AllProjectDirectoryPathsProvider { get; }
         private IExtensionMethodBaseRepository ExtensionMethodBaseRepository { get; }
@@ -48,7 +47,7 @@ namespace R5T.S0024
 
             // Fill in identities for the current extension method bases, using identies from corresponding repository extension method bases if available, or generating new identies if not.
             // This is required for evaluating existing to-project mappings below.
-            currentExtensionMethodBases.FillCurrentIdentities(repositoryExtensionMethodBases);
+            currentExtensionMethodBases.FillIdentitiesFromSourceOrSetNew(repositoryExtensionMethodBases);
 
             // Analysis.
             // New and departed.
@@ -79,52 +78,10 @@ namespace R5T.S0024
 
             using (var textFile = FileHelper.WriteTextFile(summaryFilePath))
             {
-                // New extension method bases.
-                var newExtensionMethodBasesCount = newExtensionMethodBases.Length;
-
-                textFile.WriteLine($"New extension method bases ({newExtensionMethodBasesCount}):");
-                textFile.WriteLine();
-
-                if (newExtensionMethodBases.None())
-                {
-                    textFile.WriteLine("<none>");
-                }
-                else
-                {
-                    var typeNamedPairs = newExtensionMethodBases
-                        .Select(x => (TypeName: Instances.NamespacedTypeName.GetTypeName(x.NamespacedTypeName), ExtensionMethodBase: x))
-                        .OrderAlphabetically(x => x.TypeName)
-                        ;
-
-                    foreach (var (TypeName, ExtensionMethodBase) in typeNamedPairs)
-                    {
-                        textFile.WriteLine($"{TypeName}: {ExtensionMethodBase.NamespacedTypeName}");
-                    }
-                }
-
-                // Departed extension method bases.
-                var departedExtensionMethodBasesCount = departedExtensionMethodBases.Length;
-
-                textFile.WriteLine();
-                textFile.WriteLine($"Departed extension method bases ({departedExtensionMethodBasesCount}):");
-                textFile.WriteLine();
-
-                if (departedExtensionMethodBases.None())
-                {
-                    textFile.WriteLine("<none>");
-                }
-                else
-                {
-                    var typeNamedPairs = departedExtensionMethodBases
-                        .Select(x => (TypeName: Instances.NamespacedTypeName.GetTypeName(x.NamespacedTypeName), ExtensionMethodBase: x))
-                        .OrderAlphabetically(x => x.TypeName)
-                        ;
-
-                    foreach (var (TypeName, ExtensionMethodBase) in typeNamedPairs)
-                    {
-                        textFile.WriteLine($"{TypeName}: {ExtensionMethodBase.NamespacedTypeName}");
-                    }
-                }
+                Instances.Operation.WriteNewAndDepartedEmbsSummaryFile(
+                    textFile,
+                    newExtensionMethodBases,
+                    departedExtensionMethodBases);
 
                 // Duplicate extension method bases
                 var duplicateCount = duplicateTypeNameSets.Count;
@@ -157,52 +114,12 @@ namespace R5T.S0024
                 var projectsByIdentity = projects.ToDictionaryByIdentity();
                 var extensionMethodBasesByIdentity = currentExtensionMethodBases.ToDictionaryByIdentity();
 
-                var newMappingsCount = newToProjectMappings.Length;
-
-                textFile.WriteLine();
-                textFile.WriteLine($"New extension method base-to-project mappings ({newMappingsCount}):");
-                textFile.WriteLine();
-
-                if (newToProjectMappings.None())
-                {
-                    textFile.WriteLine("<none>");
-                }
-                else
-                {
-                    foreach (var mapping in newToProjectMappings)
-                    {
-                        var extensionMethodBase = extensionMethodBasesByIdentity[mapping.ExtensionMethodBaseIdentity];
-                        var project = projectsByIdentity[mapping.ProjectIdentity];
-
-                        textFile.WriteLine($"{extensionMethodBase.NamespacedTypeName}: {project.Name}");
-                        textFile.WriteLine($"{extensionMethodBase.CodeFilePath}: {project.FilePath}");
-                        textFile.WriteLine();
-                    }
-                }
-
-                // Old extension method to project mappings.
-                var oldMappingsCount = oldToProjectMappings.Length;
-
-                textFile.WriteLine();
-                textFile.WriteLine($"Old extension method base-to-project mappings ({oldMappingsCount}):");
-                textFile.WriteLine();
-
-                if (oldToProjectMappings.None())
-                {
-                    textFile.WriteLine("<none>");
-                }
-                else
-                {
-                    foreach (var mapping in oldToProjectMappings)
-                    {
-                        var extensionMethodBase = extensionMethodBasesByIdentity[mapping.ExtensionMethodBaseIdentity];
-                        var project = projectsByIdentity[mapping.ProjectIdentity];
-
-                        textFile.WriteLine($"{extensionMethodBase.NamespacedTypeName}: {project.Name}");
-                        textFile.WriteLine($"{extensionMethodBase.CodeFilePath}: {project.FilePath}");
-                        textFile.WriteLine();
-                    }
-                }
+                Instances.Operation.WriteNewAndDepartedToProjectMappingsSummaryFile(
+                    textFile,
+                    extensionMethodBasesByIdentity,
+                    projectsByIdentity,
+                    newToProjectMappings,
+                    oldToProjectMappings);
             }
 
             // Show the summary in Notepad++ to be immediately helpful.

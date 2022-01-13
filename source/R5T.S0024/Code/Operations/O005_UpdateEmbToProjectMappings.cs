@@ -3,11 +3,13 @@ using System.Threading.Tasks;
 
 using R5T.D0101;
 using R5T.D0108;
+using R5T.T0020;
 
 
 namespace R5T.S0024
 {
-    public class O005_UpdateEmbToProjectMappings : T0020.IOperation
+    [OperationMarker]
+    public class O005_UpdateEmbToProjectMappings : IActionOperation
     {
         private IExtensionMethodBaseRepository ExtensionMethodBaseRepository { get; }
         private IProjectRepository ProjectRepository { get; }

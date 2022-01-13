@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
 
+using R5T.T0020;
+
 
 namespace R5T.S0024
 {
-    public class O100_UpdateEmbRepositoryWithCurrentEmbs : T0020.IOperation
+    [OperationMarker]
+    public class O100_UpdateEmbRepositoryWithCurrentEmbs : IActionOperation
     {
         private O001_AnalyzeAllCurrentEmbs O001_AnalyzeAllCurrentEmbs { get; }
         private O002_BackupFileBasedRepositoryFiles O002_BackupFileBasedRepositoryFiles { get; }

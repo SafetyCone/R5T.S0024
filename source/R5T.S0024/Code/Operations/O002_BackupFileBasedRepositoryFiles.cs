@@ -3,11 +3,13 @@ using System.Threading.Tasks;
 
 using R5T.D0096;
 using R5T.D0108.I001;
+using R5T.T0020;
 
 
 namespace R5T.S0024
 {
-    public class O002_BackupFileBasedRepositoryFiles : T0020.IOperation
+    [OperationMarker]
+    public class O002_BackupFileBasedRepositoryFiles : IActionOperation
     {
         private IBackupExtensionMethodBaseRepositoryFilePathsProvider BackupExtensionMethodBaseRepositoryFilePathsProvider { get; }
         private IHumanOutput HumanOutput { get; }

@@ -4,11 +4,13 @@ using System.Threading.Tasks;
 using R5T.D0105;
 using R5T.D0108.I001;
 using R5T.D0110;
+using R5T.T0020;
 
 
 namespace R5T.S0024
 {
-    public class O003a_PromptForRequiredHumanActions
+    [OperationMarker]
+    public class O003a_PromptForRequiredHumanActions : IOperation
     {
         private IExtensionMethodBaseRepositoryFilePathsProvider ExtensionMethodBaseRepositoryFilePathsProvider { get; }
         private INotepadPlusPlusOperator NotepadPlusPlusOperator { get; }

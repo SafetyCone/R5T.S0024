@@ -9,7 +9,7 @@
     <ProjectReference Include="..\..\..\R5T.A0003\source\R5T.A0003\R5T.A0003.csproj" />
     <ProjectReference Include="..\..\..\R5T.D0048\source\R5T.D0048.Default\R5T.D0048.Default.csproj" />
     <ProjectReference Include="..\..\..\R5T.D0081\source\R5T.D0081.I001\R5T.D0081.I001.csproj" />
-    <ProjectReference Include="..\..\..\R5T.D0084\source\R5T.D0084.A001\R5T.D0084.A001.csproj" />
+    <ProjectReference Include="..\..\..\R5T.D0084.I0001\source\R5T.D0084.I0001\R5T.D0084.I0001.csproj" />
     <ProjectReference Include="..\..\..\R5T.D0088.I0002\source\R5T.D0088.I0002\R5T.D0088.I0002.csproj" />
     <ProjectReference Include="..\..\..\R5T.D0088\source\R5T.D0088.X001\R5T.D0088.X001.csproj" />
     <ProjectReference Include="..\..\..\R5T.D0090\source\R5T.D0090.X001\R5T.D0090.X001.csproj" />
