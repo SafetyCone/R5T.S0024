@@ -21,7 +21,7 @@ namespace R5T.S0024
         public static bool AnyMandatory(this HumanActionsRequired humanActionsRequired)
         {
             var output = false
-                || humanActionsRequired.ReviewUnignoredDuplicateExtensionMethodBaseTypeNames
+               // || humanActionsRequired.ReviewUnignoredDuplicateExtensionMethodBaseTypeNames
                 ;
 
             return output;
