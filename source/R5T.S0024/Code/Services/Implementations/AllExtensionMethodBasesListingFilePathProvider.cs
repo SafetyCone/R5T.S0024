@@ -1,12 +1,12 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 
-using R5T.Quadia.D002;
+using R5T.Quadia.D002;using R5T.T0064;
 
 
 namespace R5T.S0024
-{
-    public class AllExtensionMethodBasesListingFilePathProvider : IAllExtensionMethodBasesListingFilePathProvider
+{[ServiceImplementationMarker]
+    public class AllExtensionMethodBasesListingFilePathProvider : IAllExtensionMethodBasesListingFilePathProvider,IServiceImplementation
     {
         public const string FileName = "Extension Method Base Names-All.txt";
 
