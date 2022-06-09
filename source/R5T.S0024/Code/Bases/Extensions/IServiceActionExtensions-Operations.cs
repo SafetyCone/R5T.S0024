@@ -16,7 +16,7 @@ namespace R5T.S0024
     public static partial class IServiceActionExtensions
     {
         /// <summary>
-        /// Adds the <see cref="O000_Main"/> operation as a <see cref="ServiceLifetime.Singleton"/>.
+        /// Adds the <see cref="O000_Main"/> operation as a <see cref="Microsoft.Extensions.DependencyInjection.ServiceLifetime.Singleton"/>.
         /// </summary>
         public static IServiceAction<O000_Main> AddO000_MainAction(this IServiceAction _,
             IServiceAction<O100_UpdateEmbRepositoryWithCurrentEmbs> o100_UpdateEmbRepositoryWithCurrentEmbsAction)
@@ -28,7 +28,7 @@ namespace R5T.S0024
         }
 
         /// <summary>
-        /// Adds the <see cref="O100_UpdateEmbRepositoryWithCurrentEmbs"/> operation as a <see cref="ServiceLifetime.Singleton"/>.
+        /// Adds the <see cref="O100_UpdateEmbRepositoryWithCurrentEmbs"/> operation as a <see cref="Microsoft.Extensions.DependencyInjection.ServiceLifetime.Singleton"/>.
         /// </summary>
         public static IServiceAction<O100_UpdateEmbRepositoryWithCurrentEmbs> AddO100_UpdateEmbRepositoryWithCurrentEmbsAction(this IServiceAction _,
             IServiceAction<O001_AnalyzeAllCurrentEmbs> o001_AnalyzeAllCurrentEmbsAction,
@@ -48,7 +48,7 @@ namespace R5T.S0024
         }
 
         /// <summary>
-        /// Adds the <see cref="O009_UpdateRepositoryWithSelectedEmbs"/> operation as a <see cref="ServiceLifetime.Singleton"/>.
+        /// Adds the <see cref="O009_UpdateRepositoryWithSelectedEmbs"/> operation as a <see cref="Microsoft.Extensions.DependencyInjection.ServiceLifetime.Singleton"/>.
         /// </summary>
         public static IServiceAction<O009_UpdateRepositoryWithSelectedEmbs> AddO009_UpdateRepositoryWithSelectedEmbsAction(this IServiceAction _,
             IServiceAction<IExtensionMethodBaseRepository> extensionMethodBaseRepositoryAction,
@@ -64,7 +64,7 @@ namespace R5T.S0024
         }
 
         /// <summary>
-        /// Adds the <see cref="O008_MapEmbsToProjects"/> operation as a <see cref="ServiceLifetime.Singleton"/>.
+        /// Adds the <see cref="O008_MapEmbsToProjects"/> operation as a <see cref="Microsoft.Extensions.DependencyInjection.ServiceLifetime.Singleton"/>.
         /// </summary>
         public static IServiceAction<O008_MapEmbsToProjects> AddO008_MapEmbsToProjectsAction(this IServiceAction _,
             IServiceAction<IExtensionMethodBaseRepository> extensionMethodBaseRepositoryAction,
@@ -82,7 +82,7 @@ namespace R5T.S0024
         }
 
         /// <summary>
-        /// Adds the <see cref="O007_WriteOutAllEmbs"/> operation as a <see cref="ServiceLifetime.Singleton"/>.
+        /// Adds the <see cref="O007_WriteOutAllEmbs"/> operation as a <see cref="Microsoft.Extensions.DependencyInjection.ServiceLifetime.Singleton"/>.
         /// </summary>
         public static IServiceAction<O007_WriteOutAllEmbs> AddO007_WriteOutAllEmbsAction(this IServiceAction _,
             IServiceAction<IAllExtensionMethodBasesListingFilePathProvider> allExtensionMethodBasesListingFilePathProviderAction,
@@ -98,7 +98,7 @@ namespace R5T.S0024
         }
 
         /// <summary>
-        /// Adds the <see cref="O006_UpdateRepositoryWithAllEmbs"/> operation as a <see cref="ServiceLifetime.Singleton"/>.
+        /// Adds the <see cref="O006_UpdateRepositoryWithAllEmbs"/> operation as a <see cref="Microsoft.Extensions.DependencyInjection.ServiceLifetime.Singleton"/>.
         /// </summary>
         public static IServiceAction<O006_UpdateRepositoryWithAllEmbs> AddO006_UpdateRepositoryWithAllEmbsAction(this IServiceAction _,
             IServiceAction<IAllProjectDirectoryPathsProvider> allProjectDirectoryPathsProviderAction,
@@ -120,7 +120,7 @@ namespace R5T.S0024
         }
 
         /// <summary>
-        /// Adds the <see cref="O005_UpdateEmbToProjectMappings"/> operation as a <see cref="ServiceLifetime.Singleton"/>.
+        /// Adds the <see cref="O005_UpdateEmbToProjectMappings"/> operation as a <see cref="Microsoft.Extensions.DependencyInjection.ServiceLifetime.Singleton"/>.
         /// </summary>
         public static IServiceAction<O005_UpdateEmbToProjectMappings> AddO005_UpdateEmbToProjectMappingsAction(this IServiceAction _,
             IServiceAction<IExtensionMethodBaseRepository> extensionMethodBaseRepositoryAction,
@@ -134,7 +134,7 @@ namespace R5T.S0024
         }
 
         /// <summary>
-        /// Adds the <see cref="O900_OpenAllEmbRepositoryFiles"/> operation as a <see cref="ServiceLifetime.Singleton"/>.
+        /// Adds the <see cref="O900_OpenAllEmbRepositoryFiles"/> operation as a <see cref="Microsoft.Extensions.DependencyInjection.ServiceLifetime.Singleton"/>.
         /// </summary>
         public static IServiceAction<O900_OpenAllEmbRepositoryFiles> AddO900_OpenAllEmbRepositoryFilesAction(this IServiceAction _,
             IServiceAction<IExtensionMethodBaseRepositoryFilePathsProvider> extensionMethodBaseRepositoryFilePathsProviderAction,
@@ -148,7 +148,7 @@ namespace R5T.S0024
         }
 
         /// <summary>
-        /// Adds the <see cref="O004_UpdateEmbRepository"/> operation as a <see cref="ServiceLifetime.Singleton"/>.
+        /// Adds the <see cref="O004_UpdateEmbRepository"/> operation as a <see cref="Microsoft.Extensions.DependencyInjection.ServiceLifetime.Singleton"/>.
         /// </summary>
         public static IServiceAction<O004_UpdateEmbRepository> AddO004_UpdateEmbRepositoryAction(this IServiceAction _,
             IServiceAction<IAllProjectDirectoryPathsProvider> allProjectDirectoryPathsProviderAction,
@@ -166,7 +166,7 @@ namespace R5T.S0024
         }
 
         /// <summary>
-        /// Adds the <see cref="O003a_PromptForRequiredHumanActions"/> operation as a <see cref="ServiceLifetime.Singleton"/>.
+        /// Adds the <see cref="O003a_PromptForRequiredHumanActions"/> operation as a <see cref="Microsoft.Extensions.DependencyInjection.ServiceLifetime.Singleton"/>.
         /// </summary>
         public static IServiceAction<O003a_PromptForRequiredHumanActions> AddO003a_PromptForRequiredHumanActionsAction(this IServiceAction _,
             IServiceAction<IExtensionMethodBaseRepositoryFilePathsProvider> extensionMethodBaseRepositoryFilePathsProviderAction,
@@ -182,7 +182,7 @@ namespace R5T.S0024
         }
 
         /// <summary>
-        /// Adds the <see cref="O003_PerformRequiredHumanActions"/> operation as a <see cref="ServiceLifetime.Singleton"/>.
+        /// Adds the <see cref="O003_PerformRequiredHumanActions"/> operation as a <see cref="Microsoft.Extensions.DependencyInjection.ServiceLifetime.Singleton"/>.
         /// </summary>
         public static IServiceAction<O003_PerformRequiredHumanActions> AddO003_PerformRequiredHumanActionsAction(this IServiceAction _,
             IServiceAction<IAllProjectDirectoryPathsProvider> allProjectDirectoryPathsProviderAction,
@@ -200,7 +200,7 @@ namespace R5T.S0024
         }
 
         /// <summary>
-        /// Adds the <see cref="O002_BackupFileBasedRepositoryFiles"/> operation as a <see cref="ServiceLifetime.Singleton"/>.
+        /// Adds the <see cref="O002_BackupFileBasedRepositoryFiles"/> operation as a <see cref="Microsoft.Extensions.DependencyInjection.ServiceLifetime.Singleton"/>.
         /// </summary>
         public static IServiceAction<O002_BackupFileBasedRepositoryFiles> AddO002_BackupFileBasedRepositoryFilesAction(this IServiceAction _,
             IServiceAction<IBackupExtensionMethodBaseRepositoryFilePathsProvider> backupExtensionMethodBaseRepositoryFilePathsProviderAction,
@@ -216,7 +216,7 @@ namespace R5T.S0024
         }
 
         /// <summary>
-        /// Adds the <see cref="O001_AnalyzeAllCurrentEmbs"/> operation as a <see cref="ServiceLifetime.Singleton"/>.
+        /// Adds the <see cref="O001_AnalyzeAllCurrentEmbs"/> operation as a <see cref="Microsoft.Extensions.DependencyInjection.ServiceLifetime.Singleton"/>.
         /// </summary>
         public static IServiceAction<O001_AnalyzeAllCurrentEmbs> AddO001_AnalyzeAllCurrentEmbsAction(this IServiceAction _,
             IServiceAction<IAllProjectDirectoryPathsProvider> allProjectDirectoryPathsProviderAction,

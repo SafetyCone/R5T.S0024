@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>1591;1573</NoWarn>
   </PropertyGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\..\..\R5T.A0003\source\R5T.A0003\R5T.A0003.csproj" />
     <ProjectReference Include="..\..\..\R5T.D0048\source\R5T.D0048.Default\R5T.D0048.Default.csproj" />
@@ -30,5 +30,4 @@
     <ProjectReference Include="..\R5T.S0024.Library\R5T.S0024.Library.csproj" />
     <ProjectReference Include="..\..\..\R5T.T0064\source\R5T.T0064\R5T.T0064.csproj" />
   </ItemGroup>
-
 </Project>

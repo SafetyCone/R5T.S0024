@@ -13,7 +13,7 @@ namespace R5T.S0024
     public static partial class IServiceActionExtensions
     {
         /// <summary>
-        /// Adds the <see cref="AllExtensionMethodBasesListingFilePathProvider"/> implementation of <see cref="IAllExtensionMethodBasesListingFilePathProvider"/> as a <see cref="ServiceLifetime.Singleton"/>.
+        /// Adds the <see cref="AllExtensionMethodBasesListingFilePathProvider"/> implementation of <see cref="IAllExtensionMethodBasesListingFilePathProvider"/> as a <see cref="Microsoft.Extensions.DependencyInjection.ServiceLifetime.Singleton"/>.
         /// </summary>
         public static IServiceAction<IAllExtensionMethodBasesListingFilePathProvider> AddAllExtensionMethodBasesListingFilePathProviderAction(this IServiceAction _,
             IServiceAction<IOrganizationSharedDataDirectoryFilePathProvider> organizationSharedDataDirectoryFilePathProviderAction)
@@ -25,7 +25,7 @@ namespace R5T.S0024
         }
 
         /// <summary>
-        /// Adds the <see cref="BackupProjectRepositoryFilePathsProvider"/> implementation of <see cref="IBackupExtensionMethodBaseRepositoryFilePathsProvider"/> as a <see cref="ServiceLifetime.Singleton"/>.
+        /// Adds the <see cref="BackupProjectRepositoryFilePathsProvider"/> implementation of <see cref="IBackupExtensionMethodBaseRepositoryFilePathsProvider"/> as a <see cref="Microsoft.Extensions.DependencyInjection.ServiceLifetime.Singleton"/>.
         /// </summary>
         public static IServiceAction<IBackupExtensionMethodBaseRepositoryFilePathsProvider> AddBackupProjectRepositoryFilePathsProviderAction(this IServiceAction _,
             IServiceAction<IOutputFilePathProvider> outputFilePathProviderAction)
