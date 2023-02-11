@@ -68,7 +68,7 @@ namespace R5T.S0024
 
             var allExtensionMethodBaseNamesListingFilePath = await this.AllExtensionMethodBasesListingFilePathProvider.GetAllExtensionMethodBaseNamesListingFileName();
 
-            FileHelper.WriteAllLinesSynchronous(
+            FileHelper.WriteAllLines_Synchronous(
                 allExtensionMethodBaseNamesListingFilePath,
                 allExtensionMethodBaseNamesInOrder);
 

@@ -321,7 +321,7 @@ namespace System
             }
 
             // By now, there is at least one project found. Create a mapping from the first by name in alphabetical order.
-            var project = projects.OrderAlphabetically(xProject => xProject.Name).First();
+            var project = projects.OrderAlphabetically2(xProject => xProject.Name).First();
 
             toProjectMapping = new ExtensionMethodBaseToProjectMapping
             {
